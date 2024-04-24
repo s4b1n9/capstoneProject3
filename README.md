@@ -1,2 +1,3 @@
 # capstoneProject3
-a simple blog with no database
+a simple blog with no database. the main purpose of this project was to practice on handling http methods, middleware functions and templating with ejs. to be able to store posts and edit them later, i created a json file. i know it is simple but it works fine for the time beeing till i learn about database and will be able to update this project. if you like to take a look at it here is the url to the project on render.com https://s4b1n9-capstoneproject3.onrender.com/
+it can take up to a minute until you see the page, so please be patient an maybe get somthing to drink while you wait (^.-)
