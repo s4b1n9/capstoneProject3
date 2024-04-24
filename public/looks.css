@@ -1,0 +1,257 @@
+@font-face {
+    font-family: 'CaviarDreams';
+    src: url('./fonts/CaviarDreams.ttf');
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('./fonts/Helvetica.ttf');
+}
+
+:root {
+    --color1: #014034;
+    --color2: #045848;
+    --color3: #278D6E;
+    --color4: #FBBC25;
+    --color5: #E8EDDB;
+    --color6: #93f007;
+    --font1: 'Helvetica', sans-serif;
+    --font2: 'CaviarDreams', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: 100vw;
+    opacity: 0.8;
+    background-color: var(--color2);
+    color: var(--color4);
+    font-family: var(--font2);
+    margin: 0;
+    padding: 0 5%;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:0;
+    padding: 0;
+}
+
+.gradient {
+    background: linear-gradient(135deg, #fbbc25 , #278d6e ,#045848 );
+}
+hr{
+    height: 5px;
+    border-style: none;
+    border-radius: 20px;
+}
+/* Main */
+main{
+    background-color: var(--color1);
+    padding: 0 5%;
+}
+.space {
+    width: 100%;
+    height: 50px;
+}
+.hidden {
+    visibility: hidden;
+}
+/* Top */
+h1 {
+    font-size: 4rem;
+    font-weight: lighter;
+    color: var(--color5);
+    width: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--color5);
+}
+
+.p1 {
+    max-width: 75vw;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--color5);
+    text-align: justify;
+}
+/* Post-Container */
+#post-neu {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+
+input[type="text"] {
+    background-color: var(--color5);
+    color: var(--color1);
+    font-family: var(--font1);
+    font-size: 1rem;
+    border-radius: 10px;
+    border-style: none;
+    padding: 5px;
+    margin: 5px;
+    width: calc(50% - 10px);
+    max-width: 200px;
+}
+
+textarea {
+    background-color: var(--color5);
+    color: var(--color1);
+    font-family: var(--font1);
+    font-size: 1rem;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    width: calc(50% - 10px);
+    max-width: 500px;
+}
+
+button[type="submit"] {
+    background-color: #eeeeee00;
+    color: var(--color4);
+    font-size: 1.2rem;
+    font-family: var(--font2);
+    font-weight: 900;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    padding-top: 2px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color2);
+}
+/* Beitrag */
+.btn {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    padding: 5px 6px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color3);
+}
+
+.btn svg path {
+    fill: var(--color4);
+    stroke: var(--color4);
+}
+
+svg {
+    fill: var(--color4);
+    width: 25px;
+    height: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.beitrag {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.beitrag + .beitrag {
+    margin-top: 30px;
+}
+
+.n1 {
+    display: inline-flex;
+    order: 0;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.n1 > p {
+    font-size: 1.5rem;
+    color: var(--color4);
+    font-weight: 600;
+}
+
+.n2 {
+    order: 1;
+    padding-top: 10px;
+}
+
+.n3{
+    order: 3;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--color5);
+    color: var(--color1);
+    font-family: var(--font1);
+    font-weight: 500;
+    text-align: justify;
+}
+
+footer {
+    grid-row-start: 3;
+    color: var(--color4);
+    justify-content: space-around;
+    padding: 5% 0;
+}
+/* EDIT */
+#aktualisiert{
+
+    background-color: var(--color5);
+    color: var(--color1);
+    font-family: var(--font1);
+    border-style:none;
+    text-align: justify;
+
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    min-width: 50vw;
+    max-height: 400px;
+}
+button.safe{
+    color: var(--color4);
+    padding: 5px 10px;
+    font-size: 1.2rem;
+}
+button.safe:hover{
+    background-color: var(--color3);
+}
+@media screen and (max-width: 600px) {
+    #post-neu {
+        flex-direction: column; /* Stellt sicher, dass die Elemente untereinander angeordnet sind */
+    }
+
+    input[type="text"],
+    textarea,
+    button[type="submit"] {
+        width: 100%; /* Nimmt die volle Breite des Containers ein */
+    }
+}

@@ -1,0 +1,80 @@
+<%- include("partials/header.ejs");%>
+<div class="box">
+<h2>Willkommen auf meiner Blog-Projekt-Seite | Capstone-Project #3</h2><br>
+<p class="p1">Die Aufgabe bestand darin einen einfachen Blog zu erstellen, ohne Datenbank. CRUD soll funktionieren  - tut es. Für das Speichern von Posts hab ich mich der einfachen Option einer JSON-Datei bedient. So bleiben die Posts auch nachdem der Browser geschlossen wurde erhalten und können auch später noch bearbeitet werden.
+</p>
+</div>
+<div class="space"></div>
+    <!--Formular zum Erstellen eines neuen Beitrags-->
+    <div id="post-neu">
+        <form action="/beitrag" method="post">
+            <div>
+                <label for="autor"></label>
+                <input type="text" id="autor" name="autor" placeholder="Autor">
+                <label for="titel"></label>
+                <input type="text" id="titel" name="titel" placeholder="Titel">
+            </div>
+            <div>
+                <label for="inhalt"></label>
+                <br>
+                <textarea name="inhalt" id="inhalt" cols="50" rows="5" placeholder="Schreibe hier deinen Beitrag..."></textarea>
+                <br>
+                <button type="submit">posten</button>
+            </div>
+        </form>
+    </div>
+    <hr class="gradient">
+    <div class="space"></div>
+    <!--Bereich zum Anzeigen von Beiträgen-->
+    <div id="beitraege">
+        <% beitraege.forEach((beitrag)=>{ %>
+            <div class="beitrag">
+                <div class="box">
+                    <div class="n1">
+                        <p><%=beitrag.autor%></p>
+                        <p class="hidden"><%=beitrag.id%></p>
+                        <p><%=beitrag.titel%></p>
+                    </div>
+                    <div class="n2">
+                        <ul>
+                        <li>
+                            <!--Bearbeiten-->
+                            <a href="/edit/<%=beitrag.id%>" class="btn"><img src="/edit.svg" alt="Bearbeiten" width="25" height="25" fill="#fbbc25"></a>
+                        </li>
+                            <!--Löschen-->
+                        <li>
+                            <form action="/delete/<%=beitrag.id%>?_method=DELETE" method="post" onsubmit="return confirm('Möchtest du den Beitrag wirklich löschen?')">
+                                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="20" height="20"><path d="M21,4H17.9A5.009,5.009,0,0,0,13,0H11A5.009,5.009,0,0,0,6.1,4H3A1,1,0,0,0,3,6H4V19a5.006,5.006,0,0,0,5,5h6a5.006,5.006,0,0,0,5-5V6h1a1,1,0,0,0,0-2ZM11,2h2a3.006,3.006,0,0,1,2.829,2H8.171A3.006,3.006,0,0,1,11,2Zm7,17a3,3,0,0,1-3,3H9a3,3,0,0,1-3-3V6H18Z"/><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18Z"/><path d="M14,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg></button>
+                            </form>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="n3">
+                    <p class="p3"><%=beitrag.inhalt%></p>
+                </div>
+            </div>
+        <%});%>
+        <br>
+    </div>
+    <hr class="gradient">
+    <script>
+        // Flagge, um sicherzustellen, dass der Code nur einmal ausgeführt wird
+        let codeAlreadyExecuted = false;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Überprüfe, ob der Code bereits ausgeführt wurde
+            if (!codeAlreadyExecuted) {
+                // Setze die Flagge auf true, um anzuzeigen, dass der Code bereits ausgeführt wurde
+                codeAlreadyExecuted = true;
+
+                //Löschen bestätigen
+                function confirmDelete(beitragId) {
+                    if (confirm('Möchtest du den Beitrag wirklich löschen?')) {
+                        document.getElementById('deleteForm_' + beitragId).submit();
+                    }
+                }                    
+            }
+        });
+    </script>
+<%- include("partials/footer.ejs");%>

@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs");%>
+<div class="box">
+    <h2>Beitrag bearbeiten</h2>
+</div>
+<div id="post-neu" class="box beitrag-bearbeiten">
+    <form action="/edit/<%= beitragId %>" method="post">
+        <label for="aktualisiert" class="hidden">Inhalt:</label>
+        <br>
+        <textarea name="aktualisiert" id="aktualisiert" cols="60" rows="10"><%= beitrag.inhalt %></textarea>
+        <br>
+        <button type="submit" class="safe">speichern</button>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs");%>
